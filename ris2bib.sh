@@ -1,1 +1,0 @@
-/home/hnp/Documents/APA6Template/ris2bib.sh
