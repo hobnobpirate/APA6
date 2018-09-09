@@ -1,0 +1,43 @@
+% APA6 Template
+
+% Preamble
+\documentclass[man,12pt]{apa6}
+\usepackage[utf8]{inputenc}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage[english]{babel}
+\usepackage[backend=biber, style=authoryear-icomp]{biblatex}
+\addbibresource{./refs.bib}
+
+\title{APA 6th Edition Template}
+\shorttitle{APA6 Template}
+\author{**NAME**}
+\affiliation{**AFIL**}
+\note{**DATE**}
+
+\abstract{Write abstract here}
+
+% Document
+\begin{document}
+
+\maketitle
+
+% \tableofcontents
+
+Introduction goes first.
+This is a parencite \parencite{Test01}. %(Author Year)
+This is a cite \cite{Test02}. %not really great
+This is a text cite \textcite{Test03}. %Author (Year)
+I want to write each sentance on it's own line so that I can check \LaTeX lines during debugging.
+
+\section*{Unnumbered Section}
+
+Text goes here.
+
+\section{Numbered Section} % no numbers in APA6
+
+Text goes here.
+
+\printbibliography
+
+\end{document}
