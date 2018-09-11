@@ -1,13 +1,18 @@
 #!/bin/sh
+#run this from the references folder (symlink in path works well)
 
-# Super simple script for my own use
-# Takes a ris file and adds it to refs.bib
-# TODO: error checking, archiving/deleting ris/checking for dupes
+ris2xml=/usr/bin/ris2xml
+xml2bibopts='-fc -w -nb'
+xml2bib=/usr/bin/xml2bib
+bib_file=../refs.bib
+arch_dir=./archive
+tmp_ris=./archive/tmp.ris
 
+mkdir -p $arch_dir
 
-# I like to keep a references directory and run this script from that folder.
-# This lets me maintain a refs.bib file one directory up and keep things clean.
-ris2xml $1 | xml2bib >> ../refs.bib
+for ris_file in $( ls *.ris ); do
+	$ris2xml $ris_file | $xml2bib $xml2bibopts >> $bib_file
+	#mv $ris_file $arch_dir/$ris_file
+done
 
-echo ""
-echo "$0 ended."
+vim $bib_file
